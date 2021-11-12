@@ -6,12 +6,12 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-public class DuplicationCheckResult {
+public class DuplicationCheckResponse {
 
     boolean result;
 
-    public static DuplicationCheckResult of(boolean result) {
-        return new DuplicationCheckResult(result);
+    public static DuplicationCheckResponse of(boolean result) {
+        return new DuplicationCheckResponse(result);
     }
 
 }

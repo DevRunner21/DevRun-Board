@@ -25,12 +25,7 @@ public class JoinMemberRequest {
     private String email;
 
     public Member convertToMember() {
-        return Member.builder()
-                .loginId(this.id)
-                .loginPw(this.password)
-                .name(this.name)
-                .email(this.email)
-                .build();
+        return Member.of(this.id, this.password, this.name, this.email);
     }
 
     public boolean checkPasswordConfirm() {

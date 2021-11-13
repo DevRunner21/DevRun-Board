@@ -7,14 +7,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Table(name = "tag")
+@Table(
+        name = "tag",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "UK_tag_name", columnNames = {"name"}),
+        })
+
 @Getter
+@Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Tag extends BaseEntity {
 
@@ -23,13 +31,22 @@ public class Tag extends BaseEntity {
     @Column(name = "tag_id")
     private Long id;
 
-    @Column(name = "tag_name", length = 50, nullable = false)
+    @Column(name = "name", length = 50, nullable = false)
     private String name;
 
-    @Builder
-    public Tag(Long id, String name) {
-        this.id = id;
-        this.name = name;
+    public static Tag of(Long id, String name) {
+        Tag tag = new Tag();
+        tag.setId(id);
+        tag.setName(name);
+
+        return tag;
+    }
+
+    public static Tag of(String name) {
+        Tag tag = new Tag();
+        tag.setName(name);
+
+        return tag;
     }
 
 }

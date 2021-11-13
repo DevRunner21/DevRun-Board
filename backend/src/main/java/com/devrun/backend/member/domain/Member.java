@@ -13,6 +13,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(
@@ -23,6 +24,7 @@ import lombok.NoArgsConstructor;
         }
 )
 @Getter
+@Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member extends BaseTimeEntity {
 
@@ -44,13 +46,25 @@ public class Member extends BaseTimeEntity {
     @Column(name = "email", nullable = false, length = 100)
     private String email;
 
-    @Builder
-    public Member(Long id, String loginId, String loginPw, String name, String email) {
-        this.id = id;
-        this.loginId = loginId;
-        this.loginPw = loginPw;
-        this.name = name;
-        this.email = email;
+    public static Member of(Long id, String loginId, String loginPw, String name, String email) {
+        Member member = new Member();
+        member.setId(id);
+        member.setName(name);
+        member.setLoginPw(loginPw);
+        member.setName(name);
+        member.setEmail(email);
+
+        return member;
+    }
+
+    public static Member of(String loginId, String loginPw, String name, String email) {
+        Member member = new Member();
+        member.setName(name);
+        member.setLoginPw(loginPw);
+        member.setName(name);
+        member.setEmail(email);
+
+        return member;
     }
 
 }

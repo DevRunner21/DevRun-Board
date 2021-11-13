@@ -8,13 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "category")
 @Getter
+@Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Category extends BaseEntity {
 
@@ -26,10 +27,19 @@ public class Category extends BaseEntity {
     @Column(name = "name", length = 50)
     private String name;
 
-    @Builder
-    public Category(Long id, String name) {
-        this.id = id;
-        this.name = name;
+    public static Category of(Long id, String name) {
+        Category category = new Category();
+        category.setId(id);
+        category.setName(name);
+
+        return category;
+    }
+
+    public static Category of(String name) {
+        Category category = new Category();
+        category.setName(name);
+
+        return category;
     }
 
 }

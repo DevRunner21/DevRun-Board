@@ -22,10 +22,12 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Table(name = "reply")
+@Table(name = "comment")
 @Getter
+@Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Comment extends BaseTimeEntity {
 
@@ -49,13 +51,25 @@ public class Comment extends BaseTimeEntity {
     @OneToMany(mappedBy = "superComment", cascade = CascadeType.ALL)
     private final List<Comment> subComments = new ArrayList<>();
 
-    @Builder
-    public Comment(Long id, String content, Member member, Comment superComment) {
-        this.id = id;
-        this.content = content;
-        this.member = member;
-        this.superComment = superComment;
-//        this.subComment = subComment;
+    public static Comment of(Long id, String content, Member member, Comment superComment, List<Comment> subComments) {
+        Comment comment = new Comment();
+        comment.setId(id);
+        comment.setContent(content);
+        comment.setMember(member);
+        comment.changeSuperComment(superComment);
+        subComments.forEach(comment::addSubComment);
+
+        return comment;
+    }
+
+    public static Comment of(String content, Member member, Comment superComment, List<Comment> subComments) {
+        Comment comment = new Comment();
+        comment.setContent(content);
+        comment.setMember(member);
+        comment.changeSuperComment(superComment);
+        subComments.forEach(comment::addSubComment);
+
+        return comment;
     }
 
     public void addSubComment(Comment subComment) {

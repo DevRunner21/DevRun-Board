@@ -1,11 +1,11 @@
 package com.devrun.backend.post.domain;
 
-import com.devrun.backend.category.domain.Category;
 import com.devrun.backend.common.entity.BaseTimeEntity;
 import com.devrun.backend.member.domain.Member;
 import com.devrun.backend.tag.domain.TagPost;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,13 +19,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "post")
 @Getter
+@Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Post extends BaseTimeEntity {
 
@@ -48,21 +49,34 @@ public class Post extends BaseTimeEntity {
     @JoinColumn(name = "member_id", foreignKey = @ForeignKey(name = "fk_post_to_member"))
     private Member member;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "post")
-    private final List<TagPost> tagPosts = new ArrayList<>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TagPost> tagPosts = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "fk_post_to_category"))
-    private Category category;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "fk_post_to_category"))
+//    private Category category;
 
-    @Builder
-    public Post(Long id, String title, String content, Long viewCount, Member member, Category category) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.viewCount = viewCount;
-        this.member = member;
-        this.category = category;
+    public static Post of(Long id, String title, String content, Member member, List<TagPost> tagPosts) {
+        Post post = new Post();
+        post.setId(id);
+        post.setTitle(title);
+        post.setContent(content);
+        post.setViewCount(0L);
+        post.setMember(member);
+        tagPosts.stream().forEach(post::addTagPost);
+
+        return post;
+    }
+
+    public static Post of(String title, String content, Member member, List<TagPost> tagPosts) {
+        Post post = new Post();
+        post.setTitle(title);
+        post.setContent(content);
+        post.setViewCount(0L);
+        post.setMember(member);
+        tagPosts.forEach(post::addTagPost);
+
+        return post;
     }
 
     public void addTagPost(TagPost tagPost) {
@@ -73,11 +87,10 @@ public class Post extends BaseTimeEntity {
         this.viewCount++;
     }
 
-    public Post updatePost(String title, String content) {
+    public void updatePost(String title, String content, List<TagPost> tagPosts) {
         this.title = title;
         this.content = content;
-
-        return this;
+        this.tagPosts = tagPosts;
     }
 
 }

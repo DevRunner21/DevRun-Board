@@ -16,10 +16,11 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "tag_post")
-@Getter
+@Getter @Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class TagPost extends BaseTimeEntity {
 
@@ -36,11 +37,11 @@ public class TagPost extends BaseTimeEntity {
     @JoinColumn(name = "tag_id", foreignKey = @ForeignKey(name = "fk_tag_post_to_tag"))
     private Tag tag;
 
-    @Builder
-    public TagPost(Long id, Post post, Tag tag) {
-        this.id = id;
-        this.post = post;
-        this.tag = tag;
+    public static TagPost of(Tag tag) {
+        TagPost tagPost = new TagPost();
+        tagPost.setTag(tag);
+
+        return tagPost;
     }
 
     public void changePost(Post post) {

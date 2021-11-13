@@ -3,6 +3,8 @@ package com.devrun.backend.member.controller;
 import com.devrun.backend.common.dto.ApiResponse;
 import com.devrun.backend.common.dto.DuplicationCheckResponse;
 import com.devrun.backend.member.dto.request.JoinMemberRequest;
+import com.devrun.backend.member.dto.request.LoginRequest;
+import com.devrun.backend.member.dto.response.LoginResponse;
 import com.devrun.backend.member.service.MemberService;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -43,5 +45,12 @@ public class MemberController {
 //        DuplicationCheckResponse response = memberService.checkIsDuplicatedEmail(email);
 //        return ApiResponse.ok(response);
 //    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @PostMapping(value = "/login",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ApiResponse<LoginResponse> login(@Valid @RequestBody LoginRequest request) {
+        LoginResponse response = memberService.login(request);
+        return ApiResponse.ok(response);
+    }
 
 }

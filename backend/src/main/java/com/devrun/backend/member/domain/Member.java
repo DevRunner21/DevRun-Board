@@ -50,6 +50,7 @@ public class Member extends BaseTimeEntity {
         Member member = new Member();
         member.setId(id);
         member.setName(name);
+        member.setLoginId(loginId);
         member.setLoginPw(loginPw);
         member.setName(name);
         member.setEmail(email);
@@ -59,7 +60,7 @@ public class Member extends BaseTimeEntity {
 
     public static Member of(String loginId, String loginPw, String name, String email) {
         Member member = new Member();
-        member.setName(name);
+        member.setLoginId(loginId);
         member.setLoginPw(loginPw);
         member.setName(name);
         member.setEmail(email);

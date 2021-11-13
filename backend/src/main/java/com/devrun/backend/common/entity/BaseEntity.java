@@ -8,7 +8,8 @@ import lombok.Getter;
 @Getter
 public class BaseEntity extends BaseTimeEntity{
 
-    @Column(name = "created_by", nullable = false)
+//    @Column(name = "created_by", nullable = false)
+    @Column(name = "created_by")
     private String createdBy;
 
     @Column(name = "updated_by")

@@ -13,6 +13,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.util.Assert;
 
 @Entity
 @Table(
@@ -46,6 +47,12 @@ public class Member extends BaseTimeEntity {
     private String email;
 
     public static Member of(Long id, String loginId, String loginPw, String name, String email) {
+        Assert.notNull(id,"id must not be null!");
+        Assert.notNull(loginId,"loginId must not be null!");
+        Assert.notNull(loginPw,"loginPw must not be null!");
+        Assert.notNull(name,"name must not be null!");
+        Assert.notNull(email,"email must not be null!");
+
         Member member = new Member();
         member.setId(id);
         member.setName(name);
@@ -58,6 +65,12 @@ public class Member extends BaseTimeEntity {
     }
 
     public static Member of(String loginId, String loginPw, String name, String email) {
+
+        Assert.notNull(loginId,"loginId must not be null!");
+        Assert.notNull(loginPw,"loginPw must not be null!");
+        Assert.notNull(name,"name must not be null!");
+        Assert.notNull(email,"email must not be null!");
+
         Member member = new Member();
         member.setLoginId(loginId);
         member.setLoginPw(loginPw);

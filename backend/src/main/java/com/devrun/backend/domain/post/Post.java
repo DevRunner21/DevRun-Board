@@ -22,6 +22,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.util.Assert;
 
 @Entity
 @Table(name = "post")
@@ -57,6 +58,13 @@ public class Post extends BaseTimeEntity {
 //    private Category category;
 
     public static Post of(Long id, String title, String content, Member member, List<TagPost> tagPosts) {
+
+        Assert.notNull(id,"id must not be null!");
+        Assert.notNull(title,"title must not be null!");
+        Assert.notNull(content,"content must not be null!");
+        Assert.notNull(member,"member must not be null!");
+        Assert.notNull(tagPosts,"tagPosts must not be null!");
+
         Post post = new Post();
         post.setId(id);
         post.setTitle(title);
@@ -69,6 +77,11 @@ public class Post extends BaseTimeEntity {
     }
 
     public static Post of(String title, String content, Member member, List<TagPost> tagPosts) {
+        Assert.notNull(title,"title must not be null!");
+        Assert.notNull(content,"content must not be null!");
+        Assert.notNull(member,"member must not be null!");
+        Assert.notNull(tagPosts,"tagPosts must not be null!");
+
         Post post = new Post();
         post.setTitle(title);
         post.setContent(content);

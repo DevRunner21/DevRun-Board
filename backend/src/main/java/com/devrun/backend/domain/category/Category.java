@@ -11,6 +11,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.util.Assert;
 
 @Entity
 @Table(name = "category")
@@ -28,6 +29,9 @@ public class Category extends BaseEntity {
     private String name;
 
     public static Category of(Long id, String name) {
+        Assert.notNull(id,"id must not be null!");
+        Assert.notNull(name,"name must not be null!");
+
         Category category = new Category();
         category.setId(id);
         category.setName(name);
@@ -36,6 +40,8 @@ public class Category extends BaseEntity {
     }
 
     public static Category of(String name) {
+        Assert.notNull(name,"name must not be null!");
+
         Category category = new Category();
         category.setName(name);
 

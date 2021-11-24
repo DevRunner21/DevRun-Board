@@ -1,4 +1,4 @@
-package com.devrun.backend.tag.domain;
+package com.devrun.backend.domain.tag;
 
 import com.devrun.backend.common.entity.BaseEntity;
 import javax.persistence.Column;

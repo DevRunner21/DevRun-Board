@@ -3,7 +3,8 @@ package com.devrun.backend.tag.repository;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-import com.devrun.backend.tag.domain.Tag;
+import com.devrun.backend.domain.tag.Tag;
+import com.devrun.backend.domain.tag.TagRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

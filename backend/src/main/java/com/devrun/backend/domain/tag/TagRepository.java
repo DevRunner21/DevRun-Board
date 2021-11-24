@@ -1,6 +1,6 @@
-package com.devrun.backend.tag.repository;
+package com.devrun.backend.domain.tag;
 
-import com.devrun.backend.tag.domain.Tag;
+import com.devrun.backend.domain.tag.Tag;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 

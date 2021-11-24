@@ -1,4 +1,4 @@
-package com.devrun.backend.member.domain;
+package com.devrun.backend.domain.member;
 
 import com.devrun.backend.common.entity.BaseTimeEntity;
 import javax.persistence.Column;
@@ -10,7 +10,6 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

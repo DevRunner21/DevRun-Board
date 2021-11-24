@@ -1,7 +1,5 @@
 package com.devrun.backend.post.dto.response;
 
-import com.devrun.backend.post.domain.Post;
-import com.devrun.backend.tag.domain.Tag;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
-package com.devrun.backend.tag.domain;
+package com.devrun.backend.domain.tag;
 
 import com.devrun.backend.common.entity.BaseTimeEntity;
-import com.devrun.backend.post.domain.Post;
+import com.devrun.backend.domain.post.Post;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -1,6 +1,6 @@
 package com.devrun.backend.member.dto.request;
 
-import com.devrun.backend.member.domain.Member;
+import com.devrun.backend.domain.member.Member;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import lombok.Getter;

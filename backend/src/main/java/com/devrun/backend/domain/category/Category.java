@@ -1,4 +1,4 @@
-package com.devrun.backend.category.domain;
+package com.devrun.backend.domain.category;
 
 import com.devrun.backend.common.entity.BaseEntity;
 import javax.persistence.Column;

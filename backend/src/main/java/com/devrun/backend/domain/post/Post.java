@@ -1,8 +1,8 @@
-package com.devrun.backend.post.domain;
+package com.devrun.backend.domain.post;
 
 import com.devrun.backend.common.entity.BaseTimeEntity;
-import com.devrun.backend.member.domain.Member;
-import com.devrun.backend.tag.domain.TagPost;
+import com.devrun.backend.domain.member.Member;
+import com.devrun.backend.domain.tag.TagPost;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;

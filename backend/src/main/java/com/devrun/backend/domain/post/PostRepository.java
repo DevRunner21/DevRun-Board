@@ -1,6 +1,6 @@
-package com.devrun.backend.post.repository;
+package com.devrun.backend.domain.post;
 
-import com.devrun.backend.post.domain.Post;
+import com.devrun.backend.domain.post.Post;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

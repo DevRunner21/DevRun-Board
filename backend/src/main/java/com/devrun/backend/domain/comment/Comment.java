@@ -1,7 +1,7 @@
-package com.devrun.backend.comment.domain;
+package com.devrun.backend.domain.comment;
 
 import com.devrun.backend.common.entity.BaseTimeEntity;
-import com.devrun.backend.member.domain.Member;
+import com.devrun.backend.domain.member.Member;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

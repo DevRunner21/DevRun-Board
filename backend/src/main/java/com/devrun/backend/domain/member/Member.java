@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
@@ -16,66 +19,63 @@ import lombok.Setter;
 import org.springframework.util.Assert;
 
 @Entity
-@Table(
-        name = "member",
-        uniqueConstraints = {
-                @UniqueConstraint(name = "UK_user_login_id", columnNames = {"login_id"}),
-                @UniqueConstraint(name = "UK_user_login_email", columnNames = {"email"})
-        }
-)
+@Table(name = "member")
 @Getter
 @Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "login_id", nullable = false, length = 30)
-    private String loginId;
+    @Column(name = "name")
+    private String username;
 
-    @Column(name = "login_pw", nullable = false, length = 100)
-    private String loginPw;
+    @Column(name = "provider")
+    private String provider;
 
-    @Column(name = "name", nullable = false, length = 50)
-    private String name;
+    @Column(name = "provider_id")
+    private String providerId;
 
-    @Email
-    @Column(name = "email", nullable = false, length = 100)
-    private String email;
+    @Column(name = "profile_image")
+    private String profileImage;
 
-    public static Member of(Long id, String loginId, String loginPw, String name, String email) {
+    @OneToOne(optional = false)
+    @JoinColumn(name = "permission_id")
+    private Permission permission;
+
+    public static Member of(Long id, String username, String provider, String providerId, String profileImage, Permission permission) {
         Assert.notNull(id,"id must not be null!");
-        Assert.notNull(loginId,"loginId must not be null!");
-        Assert.notNull(loginPw,"loginPw must not be null!");
-        Assert.notNull(name,"name must not be null!");
-        Assert.notNull(email,"email must not be null!");
+        Assert.notNull(username,"username must not be null!");
+        Assert.notNull(provider,"provider must not be null!");
+        Assert.notNull(providerId,"providerId must not be null!");
+        Assert.notNull(profileImage,"profileImage must not be null!");
 
         Member member = new Member();
         member.setId(id);
-        member.setName(name);
-        member.setLoginId(loginId);
-        member.setLoginPw(loginPw);
-        member.setName(name);
-        member.setEmail(email);
+        member.setUsername(username);
+        member.setProvider(provider);
+        member.setProviderId(providerId);
+        member.setProfileImage(profileImage);
+        member.setPermission(permission);
 
         return member;
     }
 
-    public static Member of(String loginId, String loginPw, String name, String email) {
-
-        Assert.notNull(loginId,"loginId must not be null!");
-        Assert.notNull(loginPw,"loginPw must not be null!");
-        Assert.notNull(name,"name must not be null!");
-        Assert.notNull(email,"email must not be null!");
+    public static Member of(String username, String provider, String providerId, String profileImage, Permission permission) {
+        Assert.notNull(username,"username must not be null!");
+        Assert.notNull(provider,"provider must not be null!");
+        Assert.notNull(providerId,"providerId must not be null!");
+        Assert.notNull(profileImage,"profileImage must not be null!");
 
         Member member = new Member();
-        member.setLoginId(loginId);
-        member.setLoginPw(loginPw);
-        member.setName(name);
-        member.setEmail(email);
+        member.setUsername(username);
+        member.setProvider(provider);
+        member.setProviderId(providerId);
+        member.setProfileImage(profileImage);
+        member.setPermission(permission);
 
         return member;
     }

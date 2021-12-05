@@ -43,6 +43,7 @@ public final class Jwt {
     }
     builder.withClaim("username", claims.username);
     builder.withArrayClaim("roles", claims.roles);
+    builder.withClaim("providerId", claims.providerId);
     return builder.sign(algorithm);
   }
 
@@ -75,6 +76,7 @@ public final class Jwt {
     String[] roles;
     Date iat;
     Date exp;
+    String providerId;
 
     private Claims() {/*no-op*/}
 
@@ -88,12 +90,16 @@ public final class Jwt {
       }
       this.iat = decodedJWT.getIssuedAt();
       this.exp = decodedJWT.getExpiresAt();
+      Claim providerId = decodedJWT.getClaim("providerId");
+      if (!providerId.isNull())
+        this.providerId = providerId.asString();
     }
 
-    public static Claims from(String username, String[] roles) {
+    public static Claims from(String username, String[] roles, String providerId) {
       Claims claims = new Claims();
       claims.username = username;
       claims.roles = roles;
+      claims.providerId = providerId;
       return claims;
     }
 
@@ -103,6 +109,7 @@ public final class Jwt {
       map.put("roles", roles);
       map.put("iat", iat());
       map.put("exp", exp());
+      map.put("providerId", "providerId");
       return map;
     }
 

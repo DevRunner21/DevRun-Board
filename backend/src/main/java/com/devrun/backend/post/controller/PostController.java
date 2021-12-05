@@ -4,6 +4,7 @@ import com.devrun.backend.common.dto.ApiResponse;
 import com.devrun.backend.common.dto.PageResult;
 import com.devrun.backend.common.enums.ErrorInfo;
 import com.devrun.backend.common.exception.BusinessException;
+import com.devrun.backend.domain.member.Member;
 import com.devrun.backend.jwt.JwtAuthentication;
 import com.devrun.backend.member.dto.response.MemberResponse;
 import com.devrun.backend.post.dto.request.CreatePostRequest;
@@ -19,6 +20,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -40,6 +42,12 @@ public class PostController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ApiResponse<PageResult<PostAtListResult>> posts(@AuthenticationPrincipal JwtAuthentication authentication, Pageable pageable) {
+        JwtAuthentication principal = (JwtAuthentication)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        log.info("1111111111111111111111111111111111111111");
+        log.info(principal.toString());
+        log.info(principal.getUsername());
+        log.info(principal.getProviderId());
+
         return ApiResponse.ok(postService.getPostPagingList(pageable));
     }
 

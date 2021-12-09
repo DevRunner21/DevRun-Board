@@ -1,0 +1,4 @@
+[submodule "devrun-private"]
+	path = devrun-private
+	url = https://github.com/DevRunner21/devrun-secure.git
+	branch = main

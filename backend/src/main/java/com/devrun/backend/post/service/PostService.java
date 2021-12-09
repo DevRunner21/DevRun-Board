@@ -37,7 +37,7 @@ public class PostService {
             PostAtListResult.of(
                     post.getId(),
                     post.getContent(),
-                    post.getMember().getLoginId(),
+                    post.getMember().getProviderId(),
                     post.getCreatedAt()
             ));
 
@@ -52,7 +52,7 @@ public class PostService {
                 foundPost.getId(),
                 foundPost.getTitle(),
                 foundPost.getContent(),
-                foundPost.getMember().getLoginId(),
+                foundPost.getMember().getProviderId(),
                 foundPost.getTagPosts().stream()
                 .map(TagPost::getTag)
                 .map(tag -> TagAtPostDetailResult.of(tag.getId(), tag.getName()))
@@ -63,12 +63,8 @@ public class PostService {
 
     @Transactional
     public void createPost(CreatePostRequest request) {
-        Member foundMember = memberRepository.findMembersByLoginId(request.getWriterId())
+        Member foundMember = memberRepository.findByUsername(request.getWriterId())
                 .orElseThrow(() -> new BusinessException(ErrorInfo.MEMBER_NOT_FOUND));
-
-        if (!memberRepository.findMembersByLoginId(request.getWriterId()).isPresent()) {
-            throw new BusinessException(ErrorInfo.MEMBER_NOT_FOUND);
-        }
 
         List<Tag> tags = request.getTagIds().stream()
                 .map(tagId -> tagRepository.findTagById(tagId)

@@ -4,6 +4,12 @@ spring:
     username: test
     password: 1234
     url: jdbc:mysql://localhost:3306/devrun?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+  sql:
+    init:
+      platform: mysql
+      schema-locations: classpath:org/springframework/security/oauth2/client/oauth2-client-schema.sql
+      data-locations: classpath:sql/data.sql
+      encoding: UTF-8
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -19,5 +25,7 @@ spring:
     web:
       pageable:
         default-page-size: 20
+server:
+  port: 8080
 logging.level:
   org.hibernate.SQL: debug

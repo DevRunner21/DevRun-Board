@@ -1,6 +1,6 @@
 package com.devrun.backend.common.dto;
 
-import com.devrun.backend.common.enums.ErrorInfo;
+import com.devrun.backend.common.exception.ErrorInfo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDateTime;
 import lombok.Getter;

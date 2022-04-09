@@ -1,9 +1,9 @@
 package com.devrun.backend.tag.service;
 
-import com.devrun.backend.common.enums.ErrorInfo;
+import com.devrun.backend.common.exception.ErrorInfo;
 import com.devrun.backend.common.exception.BusinessException;
 import com.devrun.backend.tag.dto.request.CreateTagRequest;
-import com.devrun.backend.domain.tag.TagRepository;
+import com.devrun.backend.tag.domain.TagRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

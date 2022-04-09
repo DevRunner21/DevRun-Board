@@ -1,4 +1,4 @@
-package com.devrun.backend.common.enums;
+package com.devrun.backend.common.exception;
 
 import lombok.Getter;
 

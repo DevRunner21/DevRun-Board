@@ -1,15 +1,14 @@
 package com.devrun.backend.post.dto.request;
 
-import com.devrun.backend.domain.member.Member;
-import com.devrun.backend.domain.post.Post;
-import com.devrun.backend.domain.tag.TagPost;
-import java.util.ArrayList;
-import java.util.List;
 import javax.validation.constraints.NotBlank;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
+@Setter
 @Getter
+@NoArgsConstructor
 public class CreatePostRequest {
 
     @NotBlank(message = "제목은 필수 입력 사항입니다.")
@@ -21,11 +20,5 @@ public class CreatePostRequest {
 
     @NotBlank(message = "작성자 ID는 필수 입력 사항입니다.")
     private String writerId;
-
-    private final List<Long> tagIds = new ArrayList<>();
-
-    public Post convertToPost(Member member, List<TagPost> tagPosts) {
-        return Post.of(title, content, member, tagPosts);
-    }
 
 }

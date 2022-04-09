@@ -1,7 +1,6 @@
 package com.devrun.backend.common.exception;
 
 import com.devrun.backend.common.dto.ApiResponse;
-import com.devrun.backend.common.enums.ErrorInfo;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

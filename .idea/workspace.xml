@@ -2,8 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9c5d57d-dbff-4a59-8dae-f243322bf5a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/common/dto/ApiError.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/common/dto/ApiError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/common/dto/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/common/dto/ApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/common/enums/ErrorInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/common/exception/ErrorInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/common/exception/BusinessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/common/exception/BusinessException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/common/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/common/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/config/WebSecurityConfigure.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/domain/category/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/category/domain/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/domain/comment/Comment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/domain/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/member/domain/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/domain/member/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/member/domain/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/domain/member/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/member/domain/Permission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/domain/member/PermissionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/member/domain/PermissionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/domain/post/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/post/domain/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/domain/post/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/post/domain/PostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/domain/tag/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/tag/domain/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/domain/tag/TagPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/tag/domain/TagPost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/domain/tag/TagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/tag/domain/TagRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/jwt/Jwt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/jwt/JwtAuthentication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/jwt/JwtAuthenticationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/jwt/JwtAuthenticationToken.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/member/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/member/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/member/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/member/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/oauth2/HttpCookieOAuth2AuthorizationRequestRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/oauth2/OAuth2AuthenticationSuccessHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/post/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/post/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/post/dto/request/CreatePostRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/post/dto/request/CreatePostRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/post/dto/request/EditPostRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/post/dto/request/EditPostRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/post/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/post/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/tag/dto/request/CreateTagRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/tag/dto/request/CreateTagRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/tag/service/TagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/tag/service/TagService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/sql/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/devrun/backend/member/service/MemberServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/devrun/backend/member/service/MemberServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/devrun/backend/tag/repository/TagRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/devrun/backend/tag/repository/TagRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,11 +47,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/post/controller/PostController.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/domain/member/Member.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/domain/post/Post.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/backend/src/test/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/backend/build.gradle" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/src/main/java/com/devrun/backend/post/controller/PostController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="21SwHPjGQcyiK7ZMa0jaoeClfGP" />
   <component name="ProjectViewState">
@@ -43,6 +74,8 @@
       <workItem from="1637947710563" duration="1040000" />
       <workItem from="1638001329412" duration="519000" />
       <workItem from="1638103999418" duration="939000" />
+      <workItem from="1649397067887" duration="39000" />
+      <workItem from="1649505145806" duration="2689000" />
     </task>
     <servers />
   </component>
@@ -59,5 +92,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

@@ -1,8 +1,7 @@
 package com.devrun.backend.common.dto;
 
-import com.devrun.backend.common.enums.ErrorInfo;
+import com.devrun.backend.common.exception.ErrorInfo;
 import lombok.Getter;
-import lombok.Value;
 
 @Getter
 public class ApiError {

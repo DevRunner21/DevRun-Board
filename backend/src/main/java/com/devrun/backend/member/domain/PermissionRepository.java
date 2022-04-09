@@ -1,4 +1,4 @@
-package com.devrun.backend.domain.member;
+package com.devrun.backend.member.domain;
 
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;

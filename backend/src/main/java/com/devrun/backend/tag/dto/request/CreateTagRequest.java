@@ -1,6 +1,6 @@
 package com.devrun.backend.tag.dto.request;
 
-import com.devrun.backend.domain.tag.Tag;
+import com.devrun.backend.tag.domain.Tag;
 import javax.validation.constraints.NotBlank;
 import lombok.Getter;
 

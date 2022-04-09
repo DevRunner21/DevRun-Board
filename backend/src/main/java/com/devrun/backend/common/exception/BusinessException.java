@@ -1,6 +1,5 @@
 package com.devrun.backend.common.exception;
 
-import com.devrun.backend.common.enums.ErrorInfo;
 import lombok.Getter;
 
 @Getter

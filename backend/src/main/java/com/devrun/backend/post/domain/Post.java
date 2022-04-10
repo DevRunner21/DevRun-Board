@@ -3,15 +3,16 @@ package com.devrun.backend.post.domain;
 import com.devrun.backend.common.entity.BaseTimeEntity;
 import com.devrun.backend.member.domain.Member;
 import javax.persistence.*;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.util.Assert;
 
 @Entity
 @Table(name = "tb_post")
 @Getter
-@Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Builder
 public class Post extends BaseTimeEntity {
 
     @Id
@@ -22,16 +23,14 @@ public class Post extends BaseTimeEntity {
     @Column(name = "title", nullable = false, length = 255)
     private String title;
 
-    @Lob
     @Column(name = "content", length = 1000)
     private String content;
 
-    @Builder.Default
     @Column(name = "view_count", nullable = false)
     private Long viewCount = 0L;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id", foreignKey = @ForeignKey(name = "fk_post_to_member"))
+    @JoinColumn(name = "member_id", foreignKey = @ForeignKey(name = "fk_member_id_for_post"))
     private Member member;
 
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -42,6 +41,7 @@ public class Post extends BaseTimeEntity {
 //    private Category category;
 
 
+    @Builder
     public Post(Long id, String title, String content, Long viewCount, Member member) {
         Assert.notNull(id, "id must not be null!");
         Assert.notNull(title, "title must not be null!");

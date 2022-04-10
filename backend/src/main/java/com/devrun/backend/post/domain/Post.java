@@ -2,28 +2,16 @@ package com.devrun.backend.post.domain;
 
 import com.devrun.backend.common.entity.BaseTimeEntity;
 import com.devrun.backend.member.domain.Member;
-import com.devrun.backend.tag.domain.TagPost;
-import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import lombok.*;
-import lombok.Builder.Default;
 import org.springframework.util.Assert;
 
 @Entity
-@Table(name = "post")
+@Table(name = "tb_post")
 @Getter
 @Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
 public class Post extends BaseTimeEntity {
 
     @Id
@@ -54,12 +42,11 @@ public class Post extends BaseTimeEntity {
 //    private Category category;
 
 
-    @Builder
     public Post(Long id, String title, String content, Long viewCount, Member member) {
-        Assert.notNull(id,"id must not be null!");
-        Assert.notNull(title,"title must not be null!");
-        Assert.notNull(content,"content must not be null!");
-        Assert.notNull(member,"member must not be null!");
+        Assert.notNull(id, "id must not be null!");
+        Assert.notNull(title, "title must not be null!");
+        Assert.notNull(content, "content must not be null!");
+        Assert.notNull(member, "member must not be null!");
 //        Assert.notNull(tagPosts,"tagPosts must not be null!");
 
         this.id = id;

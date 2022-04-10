@@ -9,7 +9,7 @@ import lombok.Setter;
 import org.springframework.util.Assert;
 
 @Entity
-@Table(name = "member")
+@Table(name = "tb_member")
 @Getter
 @Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

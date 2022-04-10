@@ -1,16 +1,16 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: test
+    username: root
     password: 1234
-    url: jdbc:mysql://localhost:3306/devrun?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3308/db_devrun?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&allowPublicKeyRetrieval=true
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
-    generate-ddl: true
+    generate-ddl: false
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
     properties:
       hibernate:
         format_sql: true

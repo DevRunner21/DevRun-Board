@@ -25,7 +25,7 @@ public class PostService {
     private final MemberRepository memberRepository;
 
     public PageResponse<ReadPostsResponse> getPosts(Pageable pageRequest) {
-        Page<ReadPostsResponse> readPostsResponsePage = postRepository.findPosts(pageRequest).map(post ->
+        Page<ReadPostsResponse> readPostsResponsePage = postRepository.findAll(pageRequest).map(post ->
             ReadPostsResponse.builder()
                 .id(post.getId())
                 .title(post.getTitle())

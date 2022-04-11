@@ -18,16 +18,19 @@ public class ReadPostResponse {
 
     private String writerId;
 
+    private Long viewCount;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     private LocalDateTime createdAt;
 
     @Builder
-    public ReadPostResponse(Long id, String title, String content, String writerId, LocalDateTime createdAt) {
+    public ReadPostResponse(Long id, String title, String content, String writerId, Long viewCount, LocalDateTime createdAt) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.writerId = writerId;
+        this.viewCount = viewCount;
         this.createdAt = createdAt;
     }
-
+    
 }

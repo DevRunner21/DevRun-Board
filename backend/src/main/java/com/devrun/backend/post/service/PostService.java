@@ -37,6 +37,7 @@ public class PostService {
         return PageResponse.<ReadPostsResponse>of(readPostsResponsePage);
     }
 
+    @Transactional
     public ReadPostResponse getPostDetail(Long postId) {
         Post foundPost = postRepository.findPostById(postId)
             .orElseThrow(() -> new BusinessException(ErrorInfo.POST_NOT_FOUND));
@@ -48,6 +49,7 @@ public class PostService {
             .content(foundPost.getContent())
             .writerId(foundPost.getMember().getLoginId())
             .createdAt(foundPost.getCreatedAt())
+            .viewCount(foundPost.getViewCount())
             .build();
     }
 

@@ -13,6 +13,7 @@ import org.springframework.util.Assert;
 @Table(name = "tb_post")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
 public class Post extends BaseTimeEntity {
 
     @Id
@@ -26,6 +27,7 @@ public class Post extends BaseTimeEntity {
     @Column(name = "content", length = 1000)
     private String content;
 
+    @Builder.Default
     @Column(name = "view_count", nullable = false)
     private Long viewCount = 0L;
 
@@ -41,9 +43,7 @@ public class Post extends BaseTimeEntity {
 //    private Category category;
 
 
-    @Builder
     public Post(Long id, String title, String content, Long viewCount, Member member) {
-        Assert.notNull(id, "id must not be null!");
         Assert.notNull(title, "title must not be null!");
         Assert.notNull(content, "content must not be null!");
         Assert.notNull(member, "member must not be null!");

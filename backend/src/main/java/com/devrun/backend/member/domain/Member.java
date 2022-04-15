@@ -1,23 +1,29 @@
 package com.devrun.backend.member.domain;
 
 import com.devrun.backend.common.entity.BaseTimeEntity;
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.util.Assert;
 
 @Entity
 @Table(name = "tb_member")
 @Getter
-@Setter(AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member extends BaseTimeEntity {
 
     @Id
-    @Column(name = "member_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "member_id")
     private Long id;
 
     @Column(name = "loginId", nullable = false)
@@ -36,8 +42,9 @@ public class Member extends BaseTimeEntity {
     @JoinColumn(name = "permission_id")
     private Permission permission;
 
-    public Member(Long id, String loginId, String password, String name, String profileImageUrl, Permission permission) {
-        Assert.notNull(id, "id must not be null!");
+    @Builder
+    public Member(Long id, String loginId, String password, String name, String profileImageUrl,
+                  Permission permission) {
         Assert.notNull(loginId, "loginId must not be null!");
         Assert.notNull(password, "password must not be null!");
         Assert.notNull(name, "name must not be null!");

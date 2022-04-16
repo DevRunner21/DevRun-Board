@@ -54,6 +54,23 @@ public class PostService {
     }
 
     @Transactional
+    public ReadPostResponse getPostDetailLock(Long postId) {
+        Post foundPost = postRepository.findPostByIdForUpdate(postId)
+                .orElseThrow(() -> new BusinessException(ErrorInfo.POST_NOT_FOUND));
+
+        foundPost.plusViewCount();
+
+        return ReadPostResponse.builder()
+                .id(foundPost.getId())
+                .title(foundPost.getTitle())
+                .content(foundPost.getContent())
+                .writerId(foundPost.getMember().getLoginId())
+                .createdAt(foundPost.getCreatedAt())
+                .viewCount(foundPost.getViewCount())
+                .build();
+    }
+
+    @Transactional
     public void createPost(String title, String content, String writerId) {
         Member foundMember = memberRepository.findByLoginId(writerId)
             .orElseThrow(() -> new BusinessException(ErrorInfo.MEMBER_NOT_FOUND));
